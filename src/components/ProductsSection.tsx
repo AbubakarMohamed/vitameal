@@ -235,7 +235,7 @@ const ProductsSection = () => {
           className="mt-24 text-center"
         >
           <div className="max-w-3xl mx-auto bg-white rounded-3xl p-12 shadow-xl border border-[#e5e5e5]">
-            <h3 className="text-3xl md:text-4xl font-serif text-[#1a1a1a] mb-4">Can't find what you're looking for?</h3>
+            <h3 className="text-3xl md:text-4xl font-serif text-[#1a1a1a] mb-4">Can&apos;t find what you&apos;re looking for?</h3>
             <p className="text-lg text-[#666] mb-8 leading-relaxed">
               Our team specializes in custom formulations tailored to your specific requirements. Let's discuss your
               unique nutrition challenges.

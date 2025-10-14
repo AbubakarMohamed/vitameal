@@ -180,7 +180,7 @@ const ServicesSection = () => {
           </h3>
 
           <p className="text-lg text-stone-300 mb-10 font-light max-w-2xl mx-auto">
-            Let's discuss how our comprehensive services can help you achieve your goals
+            Let&apos;s discuss how our comprehensive services can help you achieve your goals
           </p>
 
           <Link

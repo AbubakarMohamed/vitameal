@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -12,10 +13,10 @@ export default function Navbar() {
       <nav className="container mx-auto px-4 sm:px-6 py-3 bg-white flex items-center justify-between gap-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <a href="/" className="flex items-center gap-2">
+        <Link  href="/" className="flex items-center gap-2">
             <img src="/logo.webp" alt="Vitameals Africa Logo" className="w-8 h-8 object-contain" />
             <span className="font-bold text-lg text-emerald-600 transition">Vitameals Africa</span>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation + CTA */}

@@ -68,11 +68,11 @@ const ContactSection = () => {
             <div className="mb-8">
               <p className="text-sm font-medium tracking-wider text-[#c4a574] mb-4">CONTACT</p>
               <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
-                Let's start a conversation
+                Let&apos;s start a conversation
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Whether you're looking to fortify your products, source premium ingredients, or explore partnership
-                opportunities, we're here to help.
+                Whether you&apos;re looking to fortify your products, source premium ingredients, or explore partnership
+                opportunities, we&apos;re here to help.
               </p>
             </div>
 
@@ -135,7 +135,7 @@ const ContactSection = () => {
             <div className="mb-12">
               <h3 className="font-serif text-4xl md:text-5xl text-[#1a1a1a] mb-4">Ready to collaborate?</h3>
               <p className="text-lg text-gray-600">
-                Fill out the form below and we'll get back to you within 24 hours.
+                Fill out the form below and we&apos;ll get back to you within 24 hours.
               </p>
             </div>
 
@@ -143,7 +143,7 @@ const ContactSection = () => {
               <div className="bg-[#2d5f3f]/10 border border-[#2d5f3f]/20 rounded-2xl p-8 text-center">
                 <CheckCircle2 className="w-16 h-16 text-[#2d5f3f] mx-auto mb-4" />
                 <h4 className="text-2xl font-serif text-[#1a1a1a] mb-2">Thank you!</h4>
-                <p className="text-gray-600">We've received your message and will be in touch soon.</p>
+                <p className="text-gray-600">We&apos;ve received your message and will be in touch soon.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">

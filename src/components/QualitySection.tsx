@@ -143,7 +143,7 @@ const QualitySection = () => {
           >
             <h3 className="font-serif text-2xl md:text-3xl text-stone-900 mb-4">Our Certifications</h3>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto font-light">
-              Recognized by the world's most respected certification bodies
+              Recognized by the world&apos;s most respected certification bodies
             </p>
           </motion.div>
 
