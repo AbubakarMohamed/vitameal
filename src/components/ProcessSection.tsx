@@ -93,10 +93,7 @@ const ProcessSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent"></div>
 
-              {/* Step number overlay */}
-              <div className="absolute top-8 left-8">
-                <div className="text-8xl font-serif font-light text-white/20">{processSteps[activeStep].number}</div>
-              </div>
+              
 
               {/* Step info overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white">

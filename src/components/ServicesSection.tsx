@@ -128,9 +128,7 @@ const ServicesSection = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/50 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500"></div>
 
-                  <div className="absolute top-8 left-8 text-7xl lg:text-8xl font-serif font-light text-white/10 group-hover:text-white/20 transition-colors duration-500">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
+                  
 
                   <div className="absolute bottom-8 left-8 right-8">
                     <h3 className="text-2xl lg:text-3xl xl:text-4xl font-serif font-normal text-white mb-3 leading-tight text-balance">
