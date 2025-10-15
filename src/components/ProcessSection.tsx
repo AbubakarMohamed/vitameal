@@ -76,7 +76,7 @@ const ProcessSection = () => {
             <span className="italic font-normal"> Reality</span>
           </h2>
           <p className="text-lg md:text-l text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            Six meticulously crafted steps that transform your nutrition goals into tangible impact across communities
+            Six meticulously crafted steps that transform your nutrition goals into <br/>tangible impact across communities
             worldwide.
           </p>
         </div>

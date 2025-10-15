@@ -75,7 +75,7 @@ export default function Navbar() {
               </Link>
 
               <button
-                className="text-[hsl(var(--navbar-foreground))] focus:outline-none"
+                className="sm:hidden text-gray-700 focus:outline-none"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Toggle menu"
               >
@@ -106,27 +106,28 @@ export default function Navbar() {
         </div>
 
         {/* Centered Logo with Overflow - Desktop Only */}
-        <div className="hidden sm:block absolute left-1/2 top-0 transform -translate-x-1/2 z-20 transition-all duration-300">
-          <div className="relative">
-            <div
-              className={`bg-white rounded-full flex items-center justify-center transition-all duration-300 ${
-                scrolled
-                  ? "h-16 w-16 p-1" // small logo when scrolled
-                  : "h-40 w-40 p-3" // large logo at top
-              }`}
-            >
-              <Link href="/" className="block">
-                <img
-                  src="/logo3.webp"
-                  alt="Vitameals Africa Logo"
-                  className={`object-contain transition-all duration-300 ${
-                    scrolled ? "h-12 w-12" : "h-40 w-40"
-                  }`}
-                />
-              </Link>
-            </div>
-          </div>
-        </div>
+        <div className="hidden sm:block absolute left-1/2 top-0 transform -translate-x-1/2 z-20 transition-all duration-300"> 
+  <div className="relative">
+    <div
+      className={`bg-white rounded-full flex items-center justify-center transition-all duration-300 ${
+        scrolled
+          ? "h-16 w-16 p-1 border-2 border-[#1C506D]" // ✅ small logo with border
+          : "h-40 w-40 p-3 border-0" // large logo without border
+      }`}
+    >
+      <Link href="/" className="block">
+        <img
+          src="/logo3.webp"
+          alt="Vitameals Africa Logo"
+          className={`object-contain transition-all duration-300 ${
+            scrolled ? "h-12 w-12" : "h-40 w-40"
+          }`}
+        />
+      </Link>
+    </div>
+  </div>
+</div>
+
       </nav>
 
       {/* Mobile Menu Dropdown */}
@@ -137,7 +138,7 @@ export default function Navbar() {
               <li key={item} className="px-6">
                 <a
                   href={`#${item}`}
-                  className="block text-base font-medium uppercase tracking-wide py-2 hover:text-[hsl(var(--navbar-hover))] transition-colors"
+                  className="text-gray-700 hover:text-[#0f4c81] text-sm font-medium transition"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.charAt(0).toUpperCase() + item.slice(1)}
