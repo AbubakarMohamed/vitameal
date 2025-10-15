@@ -104,9 +104,9 @@ const ProductsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-[#2d5f4f] mb-4 font-medium">Our Portfolio</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-[#0f4c81] mb-4 font-medium">Our Portfolio</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#1a1a1a] mb-6 leading-[1.1] text-balance">
-            Precision nutrition for <span className="italic text-[#2d5f4f]">every need</span>
+            Precision nutrition for <span className="italic text-[#0f4c81]">every need</span>
           </h2>
           <p className="text-lg md:text-l text-[#666] max-w-3xl mx-auto leading-relaxed">
             From fortified staples to specialized ingredients, our comprehensive range serves global nutrition
@@ -122,7 +122,7 @@ const ProductsSection = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-[#2d5f4f] shadow-2xl"
+            className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-[#0f4c81] shadow-2xl"
           >
             <Image
               src={selectedProduct.image || "/placeholder.svg"}
@@ -143,7 +143,7 @@ const ProductsSection = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col justify-center"
           >
-            <p className="text-sm uppercase tracking-[0.3em] text-[#2d5f4f] mb-3 font-medium">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#0f4c81] mb-3 font-medium">
               {selectedProduct.subtitle}
             </p>
             <h3 className="text-4xl md:text-5xl font-serif text-[#1a1a1a] mb-6 leading-tight">
@@ -155,7 +155,7 @@ const ProductsSection = () => {
             <div className="grid grid-cols-2 gap-4 mb-8">
               {selectedProduct.features.map((feature, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#2d5f4f] mt-2 flex-shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#0f4c81] mt-2 flex-shrink-0"></div>
                   <span className="text-[#444] text-sm leading-relaxed">{feature}</span>
                 </div>
               ))}
@@ -168,7 +168,7 @@ const ProductsSection = () => {
                 {selectedProduct.applications.map((app, i) => (
                   <span
                     key={i}
-                    className="text-sm px-4 py-2 bg-white border border-[#e5e5e5] text-[#444] rounded-full hover:border-[#2d5f4f] hover:text-[#2d5f4f] transition-colors"
+                    className="text-sm px-4 py-2 bg-white border border-[#0f4c81] text-[#444] rounded-full hover:border-[#2d5f4f] hover:text-[#2d5f4f] transition-colors"
                   >
                     {app}
                   </span>
@@ -192,7 +192,7 @@ const ProductsSection = () => {
               onMouseEnter={() => setHoveredId(product.id)}
               onMouseLeave={() => setHoveredId(null)}
               className={`relative aspect-square rounded-2xl overflow-hidden transition-all duration-300 ${
-                selectedProduct.id === product.id ? "ring-4 ring-[#2d5f4f] scale-105" : "hover:scale-105"
+                selectedProduct.id === product.id ? "ring-4 ring-[#0f4c81] scale-105" : "hover:scale-105"
               }`}
             >
               <Image src={product.image || "/placeholder.svg"} alt={product.title} fill className="object-cover" />
@@ -242,7 +242,7 @@ const ProductsSection = () => {
             </p>
             <Link
                 href="/#contact"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-[#2d5f3f] hover:bg-[#234a32] text-white font-medium rounded-full transition-all duration-300 text-base"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-[#0f4c81] hover:bg-[#0f4c81] text-white font-medium rounded-full transition-all duration-300 text-base"
               >  Schedule a Consultation
               <svg
                   className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"

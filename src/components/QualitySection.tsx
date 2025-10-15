@@ -120,7 +120,7 @@ const QualitySection = () => {
                   visible: { opacity: 1, y: 0 },
                 }}
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#2d5016]/20 border border-[#2d5016]/30 mb-3">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#0f4c81]/20 border border-[#0f4c81]/30 mb-3">
                   <pillar.icon className="w-6 h-6 text-[#9cb88f]" />
                 </div>
                 <h3 className="text-stone-100 font-medium mb-1">{pillar.title}</h3>

@@ -29,7 +29,7 @@ const AboutSection = () => {
           viewport={{ once: true }}
         >
           <motion.p
-            className="text-emerald-400 text-sm md:text-base font-medium tracking-wider uppercase mb-6"
+            className="text-400 text-sm md:text-base font-medium tracking-wider uppercase mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -39,7 +39,7 @@ const AboutSection = () => {
           </motion.p>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8">
-            Nourishing the future, <span className="italic text-emerald-400">one meal</span> at a time
+            Nourishing the future, <span className="italic text-[#0f4c81]">one meal</span> at a time
           </h2>
 
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto font-light">
@@ -106,7 +106,7 @@ const AboutSection = () => {
                   viewport={{ once: true }}
                 >
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xl font-serif">
+                    <div className="w-12 h-12 rounded-full bg-[#0f4c81] text-white flex items-center justify-center text-xl font-serif">
                       {item.number}
                     </div>
                   </div>
@@ -176,25 +176,7 @@ const AboutSection = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-12 border-t border-b border-gray-200"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            {[
-              { label: "Countries Served", value: "25+" },
-              { label: "Tons Processed", value: "10K+" },
-              { label: "Quality Certifications", value: "5" },
-              { label: "Years Experience", value: "15+" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl md:text-5xl font-serif text-emerald-600 mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-600 uppercase tracking-wide">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
+          
         </div>
       </div>
 

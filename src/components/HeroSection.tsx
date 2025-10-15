@@ -73,7 +73,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/#about"
-              className="group inline-flex items-center justify-center px-8 py-4 bg-[#2d5f3f] hover:bg-[#234a32] text-white font-medium rounded-full transition-all duration-300 text-base"
+              className="group inline-flex items-center justify-center px-8 py-4 bg-[#0f4c81] hover:bg-[#0f4c81] text-white font-medium rounded-full transition-all duration-300 text-base"
             >
               <span>Discover Our World</span>
               <svg
@@ -93,7 +93,7 @@ const HeroSection = () => {
 
             <Link
               href="/#products"
-              className="group inline-flex items-center justify-center px-8 py-4 border-2 border-[#2d5f3f] text-white hover:bg-[#2d5f3f] hover:text-white font-medium rounded-full transition-all duration-300 text-base"
+              className="group inline-flex items-center justify-center px-8 py-4 border-2 border-[#0f4c81] text-white hover:bg-[#0f4c81] hover:text-white font-medium rounded-full transition-all duration-300 text-base"
             >
               <span>Explore Solutions</span>
             </Link>

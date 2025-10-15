@@ -185,7 +185,7 @@ const ServicesSection = () => {
 
           <Link
                 href="/#contact"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-[#2d5f3f] hover:bg-[#234a32] text-white font-medium rounded-full transition-all duration-300 text-base"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-[#0f4c81] hover:bg-[#0f4c81] text-white font-medium rounded-full transition-all duration-300 text-base"
               >
             <span>Start Your Project</span>
             <svg

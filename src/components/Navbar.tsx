@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
         <Link  href="/" className="flex items-center gap-2">
             <img src="/logo.webp" alt="Vitameals Africa Logo" className="w-8 h-8 object-contain" />
-            <span className="font-bold text-lg text-emerald-600 transition">Vitameals Africa</span>
+            <span className="font-bold text-lg text-[#0f4c81] transition">Vitameals Africa</span>
           </Link>
         </div>
 
@@ -24,7 +24,7 @@ export default function Navbar() {
           <ul className="flex items-center gap-4">
             {navItems.map((item) => (
               <li key={item}>
-                <a href={`#${item}`} className="text-gray-700 hover:text-emerald-600 text-sm font-medium transition">
+                <a href={`#${item}`} className="text-gray-700 hover:text-[#0f4c81] text-sm font-medium transition">
                   {item.charAt(0).toUpperCase() + item.slice(1)}
                 </a>
               </li>

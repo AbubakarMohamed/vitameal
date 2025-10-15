@@ -116,7 +116,7 @@ const ProcessSection = () => {
                 onMouseLeave={() => setHoveredStep(null)}
                 className={`w-full text-left p-3 rounded-xl transition-all duration-300 ${
                   index === activeStep
-                    ? "bg-[#2d5016] text-white shadow-xl"
+                    ? "bg-[#0f4c81] text-white shadow-xl"
                     : "bg-white text-stone-900 hover:bg-stone-100"
                 }`}
               >

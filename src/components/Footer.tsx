@@ -10,19 +10,7 @@ const Footer = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
 
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    setSubmitMessage("Thank you for subscribing!")
-    setEmail("")
-    setIsSubmitting(false)
-
-    setTimeout(() => setSubmitMessage(""), 3000)
-  }
 
   return (
     <footer className="relative bg-[#1a1a1a] text-white overflow-hidden">
@@ -41,36 +29,14 @@ const Footer = () => {
               <span className="font-serif text-2xl text-white">Vitameal</span>
             </Link>
 
-            <p className="text-[#2d5f4d] font-serif text-lg italic mb-8">Empowering healthy generations</p>
+            <p className="text-[#0f4c81] font-serif text-lg italic mb-8">Empowering healthy generations</p>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-12 max-w-md">
               Your strategic partner in food fortification and nutritional commodities across Africa and beyond.
               Building a healthier future, one meal at a time.
             </p>
 
-            {/* Newsletter */}
-            <div>
-            {submitMessage && <p className="text-[#2d5f4d] text-sm mt-2">{submitMessage}</p>}
-              <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-[#2d5f4d] transition-colors text-sm"
-                />
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="px-6 py-3 bg-[#2d5f4d] hover:bg-[#234a3d] text-white rounded-lg transition-colors disabled:opacity-50 flex items-center gap-2 text-sm font-medium"
-                >
-                  {isSubmitting ? "Sending..." : "Subscribe"}
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
-              
-            </div>  
+            
             
           </div>
 
@@ -88,7 +54,7 @@ const Footer = () => {
                   { label: "Quality", href: "/#quality" },
                 ].map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-gray-400 hover:text-[#2d5f4d] transition-colors text-sm">
+                    <Link href={link.href} className="text-gray-400 hover:text-[#0f4c81] transition-colors text-sm">
                       {link.label}
                     </Link>
                   </li>
@@ -104,18 +70,18 @@ const Footer = () => {
                 <li>
                   <a
                     href="mailto:info@vitameals.co"
-                    className="text-gray-400 hover:text-[#2d5f4d] transition-colors text-sm flex items-start gap-2 group"
+                    className="text-gray-400 hover:text-[#0f4c81] transition-colors text-sm flex items-start gap-2 group"
                   >
-                    <Mail className="w-4 h-4 mt-0.5 text-[#2d5f4d] group-hover:scale-110 transition-transform" />
+                    <Mail className="w-4 h-4 mt-0.5 text-[#0f4c81] group-hover:scale-110 transition-transform" />
                     <span>info@vitameals.co</span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="tel:+254750000020"
-                    className="text-gray-400 hover:text-[#2d5f4d] transition-colors text-sm flex items-start gap-2 group"
+                    className="text-gray-400 hover:text-[#0f4c81] transition-colors text-sm flex items-start gap-2 group"
                   >
-                    <Phone className="w-4 h-4 mt-0.5 text-[#2d5f4d] group-hover:scale-110 transition-transform" />
+                    <Phone className="w-4 h-4 mt-0.5 text-[#0f4c81] group-hover:scale-110 transition-transform" />
                     <span>+254 750 000 020</span>
                   </a>
                 </li>
@@ -124,15 +90,15 @@ const Footer = () => {
                     href="https://wa.me/254715100100"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-[#2d5f4d] transition-colors text-sm flex items-start gap-2 group"
+                    className="text-gray-400 hover:text-[#0f4c81] transition-colors text-sm flex items-start gap-2 group"
                   >
-                    <Phone className="w-4 h-4 mt-0.5 text-[#2d5f4d] group-hover:scale-110 transition-transform" />
+                    <Phone className="w-4 h-4 mt-0.5 text-[#0f4c81] group-hover:scale-110 transition-transform" />
                     <span>+254 715 100 100</span>
                   </a>
                 </li>
                 <li>
                   <div className="text-gray-400 text-sm flex items-start gap-2">
-                    <MapPin className="w-4 h-4 mt-0.5 text-[#2d5f4d] flex-shrink-0" />
+                    <MapPin className="w-4 h-4 mt-0.5 text-[#0f4c81] flex-shrink-0" />
                     <span>Parklands, Nairobi, Kenya</span>
                   </div>
                 </li>
@@ -163,12 +129,12 @@ const Footer = () => {
               </div>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/privacy" className="text-gray-400 hover:text-[#2d5f4d] transition-colors text-sm">
+                  <Link href="/privacy" className="text-gray-400 hover:text-[#0f4c81] transition-colors text-sm">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="text-gray-400 hover:text-[#2d5f4d] transition-colors text-sm">
+                  <Link href="/terms" className="text-gray-400 hover:text-[#0f4c81] transition-colors text-sm">
                     Terms of Service
                   </Link>
                 </li>
