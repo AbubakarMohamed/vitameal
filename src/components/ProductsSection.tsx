@@ -96,7 +96,7 @@ const ProductsSection = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-[1400px] mx-auto relative ">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -113,6 +113,53 @@ const ProductsSection = () => {
             challenges with scientific excellence.
           </p>
         </motion.div>
+
+        {/* Product Category Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 py-5">
+          {productCategories.map((product, i) => (
+            <motion.button
+              key={product.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+              onClick={() => setSelectedProduct(product)}
+              onMouseEnter={() => setHoveredId(product.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              className={`relative aspect-square rounded-2xl overflow-hidden transition-all duration-300 ${
+                selectedProduct.id === product.id ? "ring-4 ring-[#0f4c81] scale-105" : "hover:scale-105"
+              }`}
+            >
+              <Image src={product.image || "/placeholder.svg"} alt={product.title} fill className="object-cover" />
+              <div
+                className={`absolute inset-0 bg-gradient-to-t transition-opacity duration-300 ${
+                  selectedProduct.id === product.id || hoveredId === product.id
+                    ? "from-[#2d5f4f]/90 via-[#2d5f4f]/50 to-transparent"
+                    : "from-black/60 via-black/30 to-transparent"
+                }`}
+              ></div>
+
+              <div className="absolute inset-0 p-4 flex flex-col justify-end">
+                <p className="text-white font-medium text-sm leading-tight text-balance">{product.title}</p>
+                {(selectedProduct.id === product.id || hoveredId === product.id) && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-2">
+                    <span className="text-xs text-white/80">{product.subtitle}</span>
+                  </motion.div>
+                )}
+              </div>
+
+              {/* Number Badge */}
+              <div
+                className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
+                  selectedProduct.id === product.id
+                    ? "bg-white text-[#2d5f4f]"
+                    : "bg-white/20 text-white backdrop-blur-sm"
+                }`}
+              >
+                {i + 1}
+              </div>
+            </motion.button>
+          ))}
+        </div>
 
         {/* Main Product Display - Split Layout */}
         <div className="grid lg:grid-cols-2 gap-12 mb-20">
@@ -180,53 +227,7 @@ const ProductsSection = () => {
           </motion.div>
         </div>
 
-        {/* Product Category Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {productCategories.map((product, i) => (
-            <motion.button
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              onClick={() => setSelectedProduct(product)}
-              onMouseEnter={() => setHoveredId(product.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              className={`relative aspect-square rounded-2xl overflow-hidden transition-all duration-300 ${
-                selectedProduct.id === product.id ? "ring-4 ring-[#0f4c81] scale-105" : "hover:scale-105"
-              }`}
-            >
-              <Image src={product.image || "/placeholder.svg"} alt={product.title} fill className="object-cover" />
-              <div
-                className={`absolute inset-0 bg-gradient-to-t transition-opacity duration-300 ${
-                  selectedProduct.id === product.id || hoveredId === product.id
-                    ? "from-[#2d5f4f]/90 via-[#2d5f4f]/50 to-transparent"
-                    : "from-black/60 via-black/30 to-transparent"
-                }`}
-              ></div>
-
-              <div className="absolute inset-0 p-4 flex flex-col justify-end">
-                <p className="text-white font-medium text-sm leading-tight text-balance">{product.title}</p>
-                {(selectedProduct.id === product.id || hoveredId === product.id) && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-2">
-                    <span className="text-xs text-white/80">{product.subtitle}</span>
-                  </motion.div>
-                )}
-              </div>
-
-              {/* Number Badge */}
-              <div
-                className={`absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                  selectedProduct.id === product.id
-                    ? "bg-white text-[#2d5f4f]"
-                    : "bg-white/20 text-white backdrop-blur-sm"
-                }`}
-              >
-                {i + 1}
-              </div>
-            </motion.button>
-          ))}
-        </div>
-
+        
         {/* Bottom CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

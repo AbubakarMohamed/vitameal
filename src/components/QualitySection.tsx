@@ -121,7 +121,7 @@ const QualitySection = () => {
                 }}
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#0f4c81]/20 border border-[#0f4c81]/30 mb-3">
-                  <pillar.icon className="w-6 h-6 text-[#9cb88f]" />
+                  <pillar.icon className="w-6 h-6 text-[#789FB3]" />
                 </div>
                 <h3 className="text-stone-100 font-medium mb-1">{pillar.title}</h3>
                 <p className="text-stone-400 text-sm font-light">{pillar.description}</p>

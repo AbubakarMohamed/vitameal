@@ -22,11 +22,9 @@ const Footer = () => {
             {/* Logo */}
             <Link href="/" className="inline-flex items-center gap-3 group mb-8">
               <img
-                src="/Logo.webp"
-                alt="Vitameal Logo"
-                className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
+                src="/Logo2.webp"
+                className="w-40 h-40 object-contain transition-transform group-hover:scale-110"
               />
-              <span className="font-serif text-2xl text-white">Vitameal</span>
             </Link>
 
             <p className="text-[#0f4c81] font-serif text-lg italic mb-8">Empowering healthy generations</p>

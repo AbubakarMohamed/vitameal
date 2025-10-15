@@ -39,7 +39,7 @@ const AboutSection = () => {
           </motion.p>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight mb-8">
-            Nourishing the future, <span className="italic text-[#0f4c81]">one meal</span> at a time
+            Nourishing the future, <span className="italic text-[#789FB3]">one meal</span> at a time
           </h2>
 
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto font-light">

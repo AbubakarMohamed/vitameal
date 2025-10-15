@@ -66,7 +66,7 @@ const ContactSection = () => {
 
           <div className="relative z-10 max-w-xl">
             <div className="mb-8">
-              <p className="text-sm font-medium tracking-wider text-[#c4a574] mb-4">CONTACT</p>
+              <p className="text-sm font-medium tracking-wider text-[#789FB3] mb-4">CONTACT</p>
               <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
                 Let&apos;s start a conversation
               </h2>
@@ -81,7 +81,7 @@ const ContactSection = () => {
               <div className="group">
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
                   <div className="w-12 h-12 rounded-full bg-[#0f4c81]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f4c81]/30 transition-colors">
-                    <Phone className="w-5 h-5 text-[#c4a574]" />
+                    <Phone className="w-5 h-5 text-[#789FB3]" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 mb-1">Phone</p>
@@ -99,7 +99,7 @@ const ContactSection = () => {
               <div className="group">
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
                   <div className="w-12 h-12 rounded-full bg-[#0f4c81]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f4c81]/30 transition-colors">
-                    <Mail className="w-5 h-5 text-[#c4a574]" />
+                    <Mail className="w-5 h-5 text-[#789FB3]" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 mb-1">Email</p>
@@ -113,7 +113,7 @@ const ContactSection = () => {
               <div className="group">
                 <div className="flex items-start gap-4 p-6 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300">
                   <div className="w-12 h-12 rounded-full bg-[#0f4c81]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0f4c81]/30 transition-colors">
-                    <MapPin className="w-5 h-5 text-[#c4a574]" />
+                    <MapPin className="w-5 h-5 text-[#789FB3]" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 mb-1">Location</p>

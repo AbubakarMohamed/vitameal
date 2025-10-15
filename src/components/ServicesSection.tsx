@@ -95,7 +95,7 @@ const ServicesSection = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-white mb-8 leading-[1.1] text-balance">
             Transform your nutrition
             <br />
-            <span className="italic font-normal text-amber-200">solutions with expertise</span>
+            <span className="italic font-normal text-[#789FB3]">solutions with expertise</span>
           </h2>
 
           <p className="text-lg md:text-l lg:text-xl text-stone-300 max-w-3xl mx-auto leading-relaxed font-light">
@@ -134,7 +134,7 @@ const ServicesSection = () => {
                     <h3 className="text-2xl lg:text-3xl xl:text-4xl font-serif font-normal text-white mb-3 leading-tight text-balance">
                       {service.title}
                     </h3>
-                    <div className="w-16 h-px bg-amber-400 group-hover:w-24 transition-all duration-500"></div>
+                    <div className="w-16 h-px bg-[#789FB3] group-hover:w-24 transition-all duration-500"></div>
                   </div>
                 </div>
 
@@ -176,7 +176,7 @@ const ServicesSection = () => {
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-white mb-6 leading-tight text-balance">
             Ready to transform your
             <br />
-            <span className="italic font-normal text-amber-200">nutrition solutions?</span>
+            <span className="italic font-normal text-[#789FB3]">nutrition solutions?</span>
           </h3>
 
           <p className="text-lg text-stone-300 mb-10 font-light max-w-2xl mx-auto">

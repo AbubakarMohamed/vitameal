@@ -71,9 +71,9 @@ const ProcessSection = () => {
         <div className="text-center mb-20 lg:mb-28">
           <p className="text-sm font-medium tracking-[0.2em] text-stone-500 uppercase mb-6">Our Process</p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-stone-900 mb-8 leading-tight">
-            From Vision to
-            <br />
-            <span className="italic font-normal">Reality</span>
+            From Vision to 
+            
+            <span className="italic font-normal"> Reality</span>
           </h2>
           <p className="text-lg md:text-l text-stone-600 max-w-3xl mx-auto leading-relaxed">
             Six meticulously crafted steps that transform your nutrition goals into tangible impact across communities
