@@ -1,5 +1,7 @@
 "use client"
-import { useState } from "react"
+
+import { useState, useEffect, useRef } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 
 const processSteps = [
@@ -54,13 +56,42 @@ const processSteps = [
     description:
       "For factory setups, this includes turnkey installation, process optimization, comprehensive training, and continuous after-sales support.",
     image: "/process-support.jpg",
-    details: "Long-term partnership with dedicated support teams ensures sustained success and continuous improvement.",
+    details:
+      "Long-term partnership with dedicated support teams ensures sustained success and continuous improvement.",
   },
 ]
 
 const ProcessSection = () => {
   const [activeStep, setActiveStep] = useState(0)
-  const [hoveredStep, setHoveredStep] = useState<number | null>(null)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+
+  const totalSteps = processSteps.length
+  const autoAdvanceDelay = 5000 // 5 seconds
+
+  // Start/stop auto-advance
+  useEffect(() => {
+    if (!isPlaying) return
+
+    intervalRef.current = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % totalSteps)
+    }, autoAdvanceDelay)
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    }
+  }, [isPlaying, totalSteps])
+
+  const handleStepClick = (index: number) => {
+    setActiveStep(index)
+    // Restart timer from this step
+    setIsPlaying(true)
+  }
+
+  const pause = () => setIsPlaying(false)
+  const resume = () => setIsPlaying(true)
 
   return (
     <section
@@ -68,21 +99,21 @@ const ProcessSection = () => {
       className="scroll-mt-20 py-10 md:py-12 lg:py-10 px-4 sm:px-6 lg:px-8 bg-stone-50 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20 lg:mb-28">
-          <p className="text-sm font-medium tracking-[0.2em] text-stone-500 uppercase mb-6">Our Process</p>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-stone-900 mb-8 leading-tight">
-            From Vision to 
-            
-            <span className="italic font-normal"> Reality</span>
-          </h2>
-          <p className="text-lg md:text-l text-stone-600 max-w-3xl mx-auto leading-relaxed">
-            Six meticulously crafted steps that transform your nutrition goals into <br/>tangible impact across communities
-            worldwide.
-          </p>
-        </div>
+        {/* Header */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-28">
+  <p className="text-sm font-medium tracking-[0.2em] text-stone-500 uppercase mb-4 sm:mb-6">
+    Our Process
+  </p>
+  <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-stone-900 mb-6 sm:mb-8 leading-tight px-4">
+    From Vision to <span className="italic font-normal">Reality</span>
+  </h2>
+  <p className="text-base sm:text-lg text-stone-600 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4">
+    Six meticulously crafted steps that transform your nutrition goals into tangible impact across communities worldwide.
+  </p>
+</div>
 
+        {/* Desktop Layout — unchanged */}
         <div className="hidden lg:grid lg:grid-cols-2 gap-10 mb-20">
-          {/* Left: Featured Step with Large Image */}
           <div className="sticky top-24 h-fit">
             <div className="relative aspect-[4/3.4] rounded-3xl overflow-hidden bg-stone-200 group">
               <Image
@@ -92,28 +123,25 @@ const ProcessSection = () => {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent"></div>
-
-              
-
-              {/* Step info overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                 <div className="text-sm font-medium tracking-wider uppercase mb-3 text-stone-300">
                   Step {processSteps[activeStep].number}
                 </div>
-                <h3 className="font-serif text-3xl font-light mb-4 leading-tight">{processSteps[activeStep].title}</h3>
-                <p className="text-stone-200 leading-relaxed text-sm">{processSteps[activeStep].details}</p>
+                <h3 className="font-serif text-3xl font-light mb-4 leading-tight">
+                  {processSteps[activeStep].title}
+                </h3>
+                <p className="text-stone-200 leading-relaxed text-sm">
+                  {processSteps[activeStep].details}
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Right: Step List */}
-          <div >
+          <div>
             {processSteps.map((step, index) => (
               <button
                 key={index}
                 onClick={() => setActiveStep(index)}
-                onMouseEnter={() => setHoveredStep(index)}
-                onMouseLeave={() => setHoveredStep(null)}
                 className={`w-full text-left p-3 rounded-xl transition-all duration-300 ${
                   index === activeStep
                     ? "bg-[#0f4c81] text-white shadow-xl"
@@ -122,61 +150,99 @@ const ProcessSection = () => {
               >
                 <div className="flex items-start gap-1">
                   <div
-                    className={`flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center font-serif text-2xl transition-all duration-300 ${
-                      index === activeStep ? "bg-white/20 text-white" : "bg-stone-100 text-stone-400"
+                    className={`flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center font-serif text-2xl ${
+                      index === activeStep
+                        ? "bg-white/20 text-white"
+                        : "bg-stone-100 text-stone-400"
                     }`}
                   >
                     {step.number}
                   </div>
-
                   <div className="flex-1 min-w-0">
                     <h3
-                      className={`font-serif text-2xl font-light mb-3 transition-colors duration-300 ${
+                      className={`font-serif text-2xl font-light mb-3 ${
                         index === activeStep ? "text-white" : "text-stone-900"
                       }`}
                     >
                       {step.title}
                     </h3>
-                    
                   </div>
-
-                  
                 </div>
               </button>
             ))}
           </div>
         </div>
 
-        <div className="lg:hidden space-y-3">
-          {processSteps.map((step, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300"
-            >
-              {/* Image */}
-              <div className="relative aspect-[16/10]">
-                <Image src={step.image || "/placeholder.svg"} alt={step.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent"></div>
-
-                {/* Step number */}
-                <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center font-serif text-xl text-white">
-                    {step.number}
+        {/* 📱 Mobile Layout — with auto-rotate + pagination */}
+        <div className="lg:hidden">
+          <div
+            onMouseEnter={pause}
+            onMouseLeave={resume}
+            onTouchStart={pause}
+            // Resume after a short delay on touch end (optional)
+            className="mb-6"
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeStep}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-3xl overflow-hidden shadow-md"
+              >
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={processSteps[activeStep].image || "/placeholder.svg"}
+                    alt={processSteps[activeStep].title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 to-transparent"></div>
+                  <div className="absolute top-4 left-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center font-serif text-xl text-white border border-white/30">
+                      {processSteps[activeStep].number}
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div className="p-6">
+                  <h3 className="font-serif text-2xl font-light text-stone-900 mb-2">
+                    {processSteps[activeStep].title}
+                  </h3>
+                  <p className="text-stone-600 text-sm mb-3">
+                    {processSteps[activeStep].description}
+                  </p>
+                  <p className="text-stone-500 text-xs leading-relaxed">
+                    {processSteps[activeStep].details}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-              {/* Content */}
-              <div className="p-6">
-                <h3 className="font-serif text-2xl font-light text-stone-900 mb-3">{step.title}</h3>
-                <p className="text-stone-600 leading-relaxed text-sm mb-4">{step.description}</p>
-                <p className="text-stone-500 text-xs leading-relaxed">{step.details}</p>
-              </div>
-            </div>
-          ))}
+          {/* Mobile Pagination */}
+          <div
+            className="flex justify-between max-w-xs mx-auto"
+            onMouseEnter={pause}
+            onMouseLeave={resume}
+            onTouchStart={pause}
+          >
+            {processSteps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleStepClick(index)}
+                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${
+                  index === activeStep
+                    ? "bg-[#0f4c81] text-white"
+                    : "bg-stone-200 text-stone-700 hover:bg-stone-300"
+                }`}
+                aria-label={`Go to step ${index + 1}`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         </div>
-
-        
       </div>
     </section>
   )

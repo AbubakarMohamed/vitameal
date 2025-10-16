@@ -1,4 +1,5 @@
 "use client"
+
 import { motion, type Variants } from "framer-motion"
 import { useState } from "react"
 import Link from "next/link"
@@ -53,11 +54,7 @@ const ServicesSection = () => {
 
   const container: Variants = {
     hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
+    show: { transition: { staggerChildren: 0.15 } },
   }
 
   const item: Variants = {
@@ -71,88 +68,87 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="scroll-mt-20 relative overflow-hidden">
+      {/* HERO SECTION */}
       <div className="relative min-h-[60vh] lg:min-h-[70vh] bg-stone-900 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/service-hero-bg.jpg" alt="Services" className="w-full h-full object-cover opacity-30" />
+          <img
+            src="/service-hero-bg.jpg"
+            alt="Services"
+            className="w-full h-full object-cover object-center opacity-30"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/50 via-stone-900/30 to-stone-900"></div>
         </div>
 
         <motion.div
-          className="relative z-5 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+          className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <div className="inline-block mb-8">
+          <div className="inline-block mb-6">
             <div className="flex items-center gap-3">
-              <div className="w-16 h-px bg-stone-400"></div>
+              <div className="w-12 h-px bg-stone-400"></div>
               <span className="text-sm tracking-[0.3em] text-stone-300 uppercase font-light">Our Services</span>
-              <div className="w-16 h-px bg-stone-400"></div>
+              <div className="w-12 h-px bg-stone-400"></div>
             </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-white mb-8 leading-[1.1] text-balance">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif font-light text-white mb-6 leading-[1.1]">
             Transform your nutrition
             <br />
             <span className="italic font-normal text-[#789FB3]">solutions with expertise</span>
           </h2>
 
-          <p className="text-lg md:text-l lg:text-xl text-stone-300 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-stone-300 max-w-3xl mx-auto leading-relaxed font-light">
             End-to-end solutions designed for compliance, scalability, and lasting global impact
           </p>
         </motion.div>
       </div>
 
+      {/* SERVICES GRID */}
       <div className="bg-stone-50 py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10"
             variants={container}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
           >
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 variants={item}
-                className="group relative bg-white overflow-hidden"
+                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
                 onMouseEnter={() => setActiveService(index)}
               >
-                <div className="relative h-80 lg:h-96 overflow-hidden">
+                {/* IMAGE */}
+                <div className="relative h-[250px] sm:h-[320px] md:h-[380px] lg:h-[420px] overflow-hidden">
                   <img
-                    src={service.image || "/placeholder.svg"}
+                    src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/50 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500"></div>
-
-                  
-
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <h3 className="text-2xl lg:text-3xl xl:text-4xl font-serif font-normal text-white mb-3 leading-tight text-balance">
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <h3 className="text-2xl md:text-3xl font-serif font-normal text-white mb-3 leading-tight">
                       {service.title}
                     </h3>
                     <div className="w-16 h-px bg-[#789FB3] group-hover:w-24 transition-all duration-500"></div>
                   </div>
                 </div>
 
-                <div className="p-8 lg:p-10">
-                  <p className="text-stone-600 leading-relaxed text-base lg:text-lg mb-6 font-light">
+                {/* DETAILS */}
+                <div className="p-6 sm:p-8">
+                  <p className="text-stone-600 leading-relaxed text-base md:text-lg mb-5 font-light">
                     {service.description}
                   </p>
-
-                  <div className="mb-8">
-  <ul className="list-disc list-inside space-y-2 text-sm text-stone-700 font-light">
-    {service.features.map((feature, idx) => (
-      <li key={idx}>{feature}</li>
-    ))}
-  </ul>
-</div>
-
-
-                  
+                  <ul className="list-disc list-inside space-y-2 text-sm text-stone-700 font-light">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx}>{feature}</li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
@@ -160,9 +156,14 @@ const ServicesSection = () => {
         </div>
       </div>
 
+      {/* CTA SECTION */}
       <div className="relative min-h-[50vh] bg-stone-900 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/service-cta-bg.jpg" alt="Contact" className="w-full h-full object-cover opacity-20" />
+          <img
+            src="/service-cta-bg.jpg"
+            alt="Contact"
+            className="w-full h-full object-cover object-center opacity-20"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/80 to-stone-900/50"></div>
         </div>
 
@@ -170,10 +171,10 @@ const ServicesSection = () => {
           className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-white mb-6 leading-tight text-balance">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-light text-white mb-6 leading-tight">
             Ready to transform your
             <br />
             <span className="italic font-normal text-[#789FB3]">nutrition solutions?</span>
@@ -184,20 +185,19 @@ const ServicesSection = () => {
           </p>
 
           <Link
-                href="/#contact"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-[#0f4c81] hover:bg-[#0f4c81] text-white font-medium rounded-full transition-all duration-300 text-base"
-              >
+            href="/#contact"
+            className="group inline-flex items-center justify-center px-8 py-4 bg-[#0f4c81] hover:bg-[#1C506D] text-white font-medium rounded-full transition-all duration-300 text-base"
+          >
             <span>Start Your Project</span>
             <svg
-                  className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-          
+              className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </motion.div>
       </div>
     </section>
